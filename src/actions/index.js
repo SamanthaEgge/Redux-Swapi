@@ -5,12 +5,13 @@ export const CHARACTER_FETCH = 'CHARACTER_FETCH';
 export const CHARACTER_FETCH_SUCCESS = 'CHARACTER_FETCH_SUCCESS';
 export const CHARACTER_FETCH_FAILURE = 'CHARACTER_FETCH_FAILURE';
 
-export const getCharacter = (charID) => dispatch => {
+export const getCharacters = () => dispatch => {
     dispatch({ type: CHARACTER_FETCH })
     axios
-        .get(`https://swapi.co/api/people`)
+        .get('https://swapi.co/api/people/')
         .then(response => {
-            dispatch({ type: CHARACTER_FETCH_SUCCESS, payload: response.data })
+            console.log('response', response.data.results)
+            dispatch({ type: CHARACTER_FETCH_SUCCESS, payload: response.data.results })
         })
         .catch(error => dispatch({ type: CHARACTER_FETCH_FAILURE }))
 }

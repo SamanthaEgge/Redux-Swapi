@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export const charsReducer = (state = initialState, action) => {
+  console.log(state);
   switch (action.type) {
     case CHARACTER_FETCH:
       return {
@@ -20,7 +21,7 @@ export const charsReducer = (state = initialState, action) => {
         ...state,
         error: '',
         isFetching: false,
-        characters: [...characters, action.payload]
+        characters: [...state.characters, ...action.payload]
       }
     case CHARACTER_FETCH_FAILURE:
       return {
