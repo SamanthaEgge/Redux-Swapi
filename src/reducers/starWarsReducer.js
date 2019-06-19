@@ -1,7 +1,5 @@
 import { CHARACTER_FETCH, CHARACTER_FETCH_SUCCESS, CHARACTER_FETCH_FAILURE } from "../actions";
 
-/// HERE I'M ADDING A TEST FOR MERGE
-
 const initialState = {
   characters: [],
   isFetching: false,
@@ -13,11 +11,23 @@ export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHARACTER_FETCH:
       return {
-
+        ...state,
+        error: '',
+        isFetching: true
       }
-    // Fill me in with the important reducers
-    // action types should be FETCHING, SUCCESS and FAILURE
-    // your switch statement should handle all of these cases.
+    case CHARACTER_FETCH_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isFetching: false,
+        characters: [...characters, action.payload]
+      }
+    case CHARACTER_FETCH_FAILURE:
+      return {
+        ...state,
+        error: 'Error fetching character',
+        isFetching: false
+      }
     default:
       return state;
   }

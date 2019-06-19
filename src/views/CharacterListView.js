@@ -5,8 +5,11 @@ import { CharacterList } from "../components";
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    state = {
+      
+    }
   }
 
   componentDidMount() {
