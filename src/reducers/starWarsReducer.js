@@ -1,5 +1,7 @@
 import { CHARACTER_FETCH, CHARACTER_FETCH_SUCCESS, CHARACTER_FETCH_FAILURE } from "../actions";
 
+/// HERE I'M ADDING A TEST FOR MERGE
+
 const initialState = {
   characters: [],
   isFetching: false,
